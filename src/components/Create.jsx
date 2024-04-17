@@ -1,25 +1,42 @@
-import React, { useState } from 'react'
-import {useTask} from '../hooks/useTask'
+import React, { useState } from 'react';
+import { useTaskList } from '../hooks/useTaskList';
 import { v4 as uuidv4 } from 'uuid';
+import { Task } from './Task';
+
 export const Create = () => {
-  const [addTask] = useTask
+  const { tasks,addTask } = useTaskList();
   const [input, setInput] = useState('');
-  const handleInput = e =>{
-      setInput(e.target.value)  
-  }
-  const handleSubmit = (e) =>{
+
+  const handleInput = (e) => {
+    setInput(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const newTask={
+    if (!input.trim()) return; // Evita agregar una tarea vacía
+
+    const newTask = {
       id: uuidv4(),
       name: input,
-      complited: false
+      completed: false
     };
+
     addTask(newTask); // Agrega la nueva tarea al estado
     setInput(''); // Limpia el campo de entrada después de agregar la tarea
-  }
+    console.log(tasks)
+  };
+
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" name="text" id="text" onChange={handleInput} />
+      <input
+        type="text"
+        name="text"
+        id="text"
+        value={input}
+        onChange={handleInput}
+        placeholder="Ingrese una nueva tarea"
+      />
+      <button type="submit">Agregar</button>
     </form>
-  )
-}
+  );
+};
