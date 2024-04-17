@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Editar = () => {
+export const EditTask = () => {
   return (
     <div>Editar</div>
   )

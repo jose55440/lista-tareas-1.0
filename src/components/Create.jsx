@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Crear = () => {
+export const Create = () => {
   return (
     <div>Crear</div>
   )

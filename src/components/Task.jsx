@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Tarea = () => {
+export const Task = () => {
   return (
     <div>Tarea</div>
   )

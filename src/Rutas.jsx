@@ -1,24 +1,18 @@
-import React from 'react'
-import { Routes, Route } from 'react-router-dom';
-import { Vista } from './components/Vista';
-import { Crear } from './components/Crear';
-import { Editar } from './components/Editar';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {View} from './components/View';
+import {Create} from './components/Create';
+import {EditTask} from './components/EditTask';
+
 export const Rutas = () => {
   return (
-    <Routes>
-      <Route path='/:tasks'>
-        <Vista/>
-      </Route>
-      
-      <Route path='/crear/:tasks'>
-        <Crear/>
-      </Route>
+    <Router>
+      <Routes>
+        <Route path="/" element={<View/>} />
+        <Route path="/create" element={<Create />} />
+        <Route path="/edit/:id" element={<EditTask />} />
+      </Routes>
+    </Router>
+  );
+};
 
-      <Route path='/editar/:id/:task'>
-        <Editar/>
-      </Route>
-
-    </Routes>
-
-  )
-}
