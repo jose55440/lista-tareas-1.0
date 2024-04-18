@@ -4,11 +4,11 @@ import { Task } from './Task';
 
 
 export const View = () => {
-  const { tasks } = useTaskList();
-  console.log(tasks)
+  const { tasks,removeTask } = useTaskList();
+  
   return (
     tasks.map((task)=>{
-      return <Task key={task.id} id={task.id} name={task.name} completed={task.completed} />
+      return <Task key={task.id} id={task.id} name={task.name} completed={task.completed}  removeTask={removeTask} />
     })
   )
 }

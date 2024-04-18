@@ -12,7 +12,9 @@ export const useTaskList = create((set) => ({
     // Función para agregar una nueva tarea a la lista
     addTask: (newTask) => set((state) => ({ tasks: [...state.tasks, newTask] })),
     // Función para eliminar una tarea de la lista
-    removeTask: (taskIndex) => set((state) => ({ tasks: state.tasks.filter((_, index) => index !== taskIndex) })),
+   removeTask: (taskId) => set((state) => ({
+    tasks: state.tasks.filter((task) => task.id !== taskId)
+})),
     // Función para ver detalles de una tarea
     viewTask: (taskId) => ViewTask(taskId), // Asumiendo que viewTask toma un argumento taskId
     // Función para editar una tarea
