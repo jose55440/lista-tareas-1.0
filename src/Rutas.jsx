@@ -4,7 +4,7 @@ import {View} from './components/View';
 import {Create} from './components/Create';
 import {EditTask} from './components/EditTask';
 import { useTaskList } from './hooks/useTaskList';
-
+import { NavBar } from './helper/NavBar';
  // Esto asegura que el efecto se ejecute cada vez que la lista de tareas cambie
 export const Rutas = () => {
   const { tasks } = useTaskList();
@@ -13,7 +13,7 @@ export const Rutas = () => {
   }, [tasks]);
   return (
     <Router>
-      
+      <NavBar/>
       <Routes>
         <Route path="/" element={<View/>} />
         <Route path="/create" element={<Create />} />
