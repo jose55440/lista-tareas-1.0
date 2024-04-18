@@ -1,7 +1,11 @@
 import React from 'react'
 
-export const Task = () => {
+export const Task = ({id,name,completed}) => {
   return (
-    <div>Tarea</div>
+    <div>
+    {id}
+    {name}
+    {completed? '✔️':'⛔'}
+    </div>
   )
 }

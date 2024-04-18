@@ -1,7 +1,14 @@
 import React from 'react'
-import { useParams } from 'react-router-dom';
+import { useTaskList } from '../hooks/useTaskList';
+import { Task } from './Task';
+
+
 export const View = () => {
+  const { tasks } = useTaskList();
+  console.log(tasks)
   return (
-    <div>Vista</div>
+    tasks.map((task)=>{
+      return <Task key={task.id} id={task.id} name={task.name} completed={task.completed} />
+    })
   )
 }
