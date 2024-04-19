@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { viewTask, editTask } from '../lib/TaskFunctions'; // Asegúrate de que el nombre del archivo coincida con 'tasks'
+import { viewTask, editTask, toComplete } from '../lib/TaskFunctions'; // Asegúrate de que el nombre del archivo coincida con 'tasks'
 import { v4 as uuidv4 } from 'uuid';
 
 export const useTaskList = create((set) => ({
@@ -22,12 +22,13 @@ export const useTaskList = create((set) => ({
     // Setter para actualizar el array de tareas
     setTasks: (newTasks) => set({ tasks: newTasks }),
 
-    toComplete: (taskId) => set((state) => ({
-        tasks: state.tasks.map((task) => {
-            if (task.id === taskId) {
+    toComplete: (taskId) => set((state)=>{
+        tasks: state.tasks.map((task)=>{
+            if (task.id==taskId){
                 task.completed=!task.completed
-            } 
+            }
         })
-    })),
+    }),
+    
     
 }));

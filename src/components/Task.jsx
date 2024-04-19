@@ -42,6 +42,7 @@ export const Task = ({id,name,completed,removeTask, toComplete}) => {
       <div className="tarea-icono-editar" onClick={procesarBorrado}>
         <AiTwotoneDelete />
       </div>
+      
       <div className="tarea-icono-completado" onClick={() => toComplete(id)}>
         {completed ? "✔️" : "❌"}
       </div>
