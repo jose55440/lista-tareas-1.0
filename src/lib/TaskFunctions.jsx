@@ -15,15 +15,17 @@ export const editTask = (id) => {
 
 
 
-export const toComplete = (id, tasks, setTasks) => {
-  // const {removeTask} = useTaskList()
-  // removeTask('1')
+export const toComplete = (id) => {
+
+  
+  const {tasks,setTasks} = useTaskList()
+  
   const newTasks = tasks.map((task) => {
     if (task.id === id) {
        task.completed= !task.completed
       }
     } )
-  
-  setTasks(newTasks)
+  setTasks( newTasks)
+ 
 }
 

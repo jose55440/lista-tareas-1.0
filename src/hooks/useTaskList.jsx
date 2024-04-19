@@ -22,7 +22,7 @@ export const useTaskList = create((set) => ({
     // Setter para actualizar el array de tareas
     setTasks: (newTasks) => set({ tasks: newTasks }),
 
-    toComplete: (taskId) => set((state) => (toComplete(taskId,state.task,state.setTasks))),
+    toComplete: (taskId) => toComplete(taskId),
     
     
 }));
