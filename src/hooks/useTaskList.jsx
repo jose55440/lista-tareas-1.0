@@ -10,9 +10,9 @@ export const useTaskList = create((set) => ({
         completed: false
     }], // Estado inicial de la lista de tareas
     // Función para agregar una nueva tarea a la lista
-    addTask: (newTask) => set((state) => ({ tasks: [...state.tasks, newTask] })),
+    addTask: (newTask) => set((state) => ({ tasks: [ ...state.tasks,newTask] })),
     // Función para eliminar una tarea de la lista
-   removeTask: (taskId) => set((state) => ({
+    removeTask: (taskId) => set((state) => ({
     tasks: state.tasks.filter((task) => task.id !== taskId)
     })),
     // Función para ver detalles de una tarea
@@ -22,7 +22,7 @@ export const useTaskList = create((set) => ({
     // Setter para actualizar el array de tareas
     setTasks: (newTasks) => set({ tasks: newTasks }),
 
-    toComplete: (taskId) => toComplete(taskId),
+    toComplete: (taskId) => set((state) => (toComplete(taskId,state.task,state.setTasks))),
     
     
 }));
