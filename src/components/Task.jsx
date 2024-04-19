@@ -4,8 +4,8 @@ import { AiTwotoneDelete } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { Toaster, toast } from "sonner";
 import "../stylesheets/Task.css";
-import { useTaskList } from '../hooks/useTaskList';
-export const Task = ({id,name,completed,removeTask}) => {
+
+export const Task = ({id,name,completed,removeTask, toComplete}) => {
   
   const procesarBorrado = () => {
     toast.custom((t) => (
@@ -42,9 +42,9 @@ export const Task = ({id,name,completed,removeTask}) => {
       <div className="tarea-icono-editar" onClick={procesarBorrado}>
         <AiTwotoneDelete />
       </div>
-      {/* <div className="tarea-icono-completado" onClick={() => completar(id)}> */}
+      <div className="tarea-icono-completado" onClick={() => toComplete(id)}>
         {completed ? "✔️" : "❌"}
-      {/* </div> */}
+      </div>
     </div>
     <Toaster  />
   </div>
