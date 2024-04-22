@@ -1,31 +1,25 @@
-import { useTaskList } from "../hooks/useTaskList"
-
 export const viewTask = () => {
-
   return (
     <div>Task</div>
   )
 }
 
-export const editTask = (id) => {
-  return (
-    <div>Task</div>
-  )
-}
-
-
-
-export const toComplete = (id) => {
-
-  
-  const {tasks,setTasks} = useTaskList()
-  
+export const editTask = (id, tasks, updatedTask) => {
   const newTasks = tasks.map((task) => {
     if (task.id === id) {
-       task.completed= !task.completed
-      }
-    } )
-  setTasks( newTasks)
- 
+      return updatedTask;
+    }
+    return task;
+  });
+  return newTasks;
 }
 
+export const toComplete = (id, tasks) => {
+  const newTasks = tasks.map((task) => {
+    if (task.id === id) {
+      return { ...task, completed: !task.completed };
+    }
+    return task;
+  });
+  return newTasks;
+}
