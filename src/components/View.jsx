@@ -12,7 +12,7 @@ export const View = () => {
 
   const handleAddTask = () => {
     if (newTaskName.trim() !== '') {
-      addTask({ id: Date.now(), name: newTaskName, completed: false });
+      addTask(newTaskName);
       setNewTaskName('');
     }
   };

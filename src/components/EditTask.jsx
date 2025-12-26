@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { useTaskList } from '../hooks/useTaskList';
 
 export const EditTask = ({ taskId }) => {
-  const { tasks, editTask } = useTaskList();
+  const { tasks, editTask,viewTask } = useTaskList();
   const [taskName, setTaskName] = useState(tasks.find((task) => task.id === taskId).name);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const updatedTask = { id: taskId, name: taskName, completed: tasks.find((task) => task.id === taskId).completed };
+    const updatedTask = { id: taskId, name: taskName, completed: viewTask(taskId).completed };
     editTask(taskId, updatedTask);
   };
 
